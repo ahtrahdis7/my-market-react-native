@@ -12,6 +12,7 @@ import CartScreen from '../screens/Cart/CartScreen';
 
 const MainNavigator = createStackNavigator(
   {
+    
     Home: HomeScreen,
     Categories: CategoriesScreen,
     Item: ItemScreen,
@@ -21,6 +22,7 @@ const MainNavigator = createStackNavigator(
   {
     initialRouteName: 'Home',
     // headerMode: 'float',
+    
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: 'bold',

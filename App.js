@@ -17,7 +17,7 @@ export default class App extends React.Component {
   // }
 
   render() {
-    if(true){
+    if(0){
       return (
         <LoginScreen />
       );
