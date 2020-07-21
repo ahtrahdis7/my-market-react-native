@@ -39,7 +39,8 @@ export default class CategoriesScreen extends React.Component {
       categories.push({type: key[0], count: key[1]})
     }
     const renderMenuItem = ({ item }) => (
-      <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' 
+      <View style={styles.card}>
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' 
       >
         <View style={styles.categoriesItemContainer}>
           <Tile 
@@ -48,11 +49,12 @@ export default class CategoriesScreen extends React.Component {
             caption={item.count}
             featured
             // style={styles.categoriesPhoto}
-            onPress={() => navigate('ItemList', { itemType: item.type })}
+            onPress={() => navigate('ItemsList', { itemType: item.type })}
             imageSrc={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }}
           />
         </View>
       </TouchableHighlight>
+      </View>
     );
     // console.log(categories);
     return (
