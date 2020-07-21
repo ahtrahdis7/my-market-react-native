@@ -25,7 +25,7 @@ function getItemsofType(itemType){
 export default class ItemsListScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: navigation.getParam('itemType')
+      title: navigation.getParam('itemType').toUpperCase()
     };
   };
 
