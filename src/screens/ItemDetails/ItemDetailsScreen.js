@@ -18,38 +18,31 @@ const { width: viewportWidth } = Dimensions.get('window');
 export default class RecipeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
+      title: navigation.getParam('item').title.toUpperCase(),
       headerTransparent: 'true',
-      headerLeft: (
+      headerLeft: () =>
         <BackButton
           onPress={() => {
             navigation.goBack();
           }}
         />
-      )
+      
     };
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeSlide: 0
-    };
-  }
-
   render() {
-
+    const { navigation } = this.props;
+    const itemDetails = navigation.getParam('item');
+    //itemDetails contains all the details of the specific item
+    console.log(itemDetails);
     return (
-      <View>
-        <Text>Item screen</Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <Image style={styles.photo} source="https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+        <Text>{itemDetails.description}</Text>
+        <Text>{}</Text>
+      </ScrollView>
     );
   }
 }
 
-/*cooking steps
-<View style={styles.infoContainer}>
-  <Image style={styles.infoPhoto} source={require('../../../assets/icons/info.png')} />
-  <Text style={styles.infoRecipe}>Cooking Steps</Text>
-</View>
-<Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
-*/
+
