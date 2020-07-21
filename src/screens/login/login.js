@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-
 import styles from "./style";
-import { Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView } from 'react-native';
+import logo from '../../../assets/logo.jpg';
+import { Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements';
+import AppContainer from '../../navigations/AppNavigation';
 
 export default function LoginScreen() {
   const onOtpPress = () => {
-    setloginbtn("Login");
     alert("OTP sent successfully")
+  }
+  const onSubmit = () => {
+    console.log("submit form");
+
   }
   const [loginbtn, setloginbtn] = useState('Get OTP');
   const [otp, setOtp] = useState(['1', '2', '3', '4']);
@@ -18,7 +22,9 @@ export default function LoginScreen() {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.loginScreenContainer}>
           <View style={styles.loginFormView}>
-            <Text style={styles.logoText}>My Store</Text>
+            <View style={styles.head}><ImageBackground source={logo} style={styles.header} >
+            </ImageBackground>
+            </View>
             <TextInput
               maxLength={10}
               keyboardType="numeric"
@@ -26,7 +32,11 @@ export default function LoginScreen() {
               placeholderColor="#c4c3cb"
               style={styles.loginFormTextInput}
             />
-
+            <Button
+              buttonStyle={styles.otpButton}
+              onPress={onOtpPress}
+              title={loginbtn}
+            />
             <TextInput
               keyboardType="numeric"
               onChangeText={value => {
@@ -53,9 +63,9 @@ export default function LoginScreen() {
               ))}
             </View>
             <Button
-              buttonStyle={styles.otpButton}
-              onPress={onOtpPress}
-              title={loginbtn}
+              buttonStyle={styles.submitButton}
+              title="Submit"
+              onPress={onSubmit}
             />
           </View>
         </View>

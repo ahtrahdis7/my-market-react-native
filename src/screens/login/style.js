@@ -5,6 +5,7 @@ const { StyleSheet } = React;
 export default {
   containerView: {
     flex: 1,
+    justifyContent: 'center'
   },
   loginScreenContainer: {
     flex: 1,
@@ -17,7 +18,7 @@ export default {
     textAlign: 'center',
   },
   loginFormView: {
-    flex: 1
+    flex: 1,
   },
   loginFormTextInput: {
     height: 43,
@@ -29,14 +30,22 @@ export default {
     paddingLeft: 10,
     marginLeft: 35,
     marginRight: 35,
-    marginTop: 25,
+    marginTop: 300,
     marginBottom: 25,
   },
   otpButton: {
     backgroundColor: '#3897f1',
     borderRadius: 5,
     height: 45,
-    marginTop: 40,
+    marginTop: 10,
+    marginLeft: 130,
+    marginRight: 130
+  },
+  submitButton: {
+    backgroundColor: '#3897f1',
+    borderRadius: 5,
+    height: 45,
+    marginTop: 25,
     marginLeft: 130,
     marginRight: 130
   },
@@ -56,7 +65,7 @@ export default {
   },
   otpBoxesContainer: {
     flexDirection: 'row',
-    marginTop: 25,
+    marginTop: 80,
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center'
@@ -71,5 +80,18 @@ export default {
     margin: 10,
     textAlign: 'center',
     alignItems: 'center',
+  },
+  header: {
+    width: 400,
+    height: 300,
+
+  },
+  head: {
+    marginTop: 30,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignSelf: 'center'
+    // alignItems: 'center',
+    // textAlign: 'center'
   }
 };
