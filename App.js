@@ -1,33 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import LoginScreen from './src/screens/login/login.js'
+import LoginScreen from './src/screens/login/login.js';
 import AppContainer from './src/navigations/AppNavigation';
 
-export default class App extends React.Component {
-  constructor(props){
-    super(props);
-    // this.state = {
-    //   pass = "0"
-    // };
-  }
+export default function App() {
+  const [isloggedin, setIsLoggedin] = useState(true)
 
-  // checkPass(){
 
-  // }
 
-  render() {
-    if(0){
-      return (
-        <LoginScreen />
-      );
-    } else {
-      return (
-        <AppContainer />
-     );
-    }
+  if (isloggedin) {
+    return (
+      <AppContainer />
+    );
+  } else {
+    return (
+      < LoginScreen />
+    );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
