@@ -1,13 +1,9 @@
 import React from 'react';
 import {
-  FlatList,
-  ScrollView,
-  Text,
-  View,
-  TouchableOpacity,
   Image,
-  Dimensions,
-  TouchableHighlight
+  View,
+  Text,
+  Dimensions
 } from 'react-native';
 import styles from './styles';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -26,21 +22,23 @@ export default class RecipeScreen extends React.Component {
             navigation.goBack();
           }}
         />
-      
+
     };
-  };
+  }
 
   render() {
-    const { navigation } = this.props;
-    const itemDetails = navigation.getParam('item');
+    const itemDetails = this.props.navigation.getParam('item');
     //itemDetails contains all the details of the specific item
     console.log(itemDetails);
     return (
-      <ScrollView style={styles.container}>
-        <Image style={styles.photo} source="https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
-        <Text>{itemDetails.description}</Text>
-        <Text>{}</Text>
-      </ScrollView>
+      <View style={styles.container}>
+        <View>
+          <Image style={styles.photo} source={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }} />
+        </View>
+        <Text style={styles.description}>{itemDetails.description}</Text>
+        <Text style={styles.price}>Rs.{itemDetails.price}</Text>
+        <Text style={styles.review}>Review-{itemDetails.rating} star</Text>
+      </View>
     );
   }
 }

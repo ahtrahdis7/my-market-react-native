@@ -22,8 +22,9 @@ export default function LoginScreen() {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.loginScreenContainer}>
           <View style={styles.loginFormView}>
-            <View style={styles.head}><ImageBackground source={logo} style={styles.header} >
-            </ImageBackground>
+            <View style={styles.head}>
+              <ImageBackground source={logo} style={styles.header} >
+              </ImageBackground>
             </View>
             <TextInput
               maxLength={10}

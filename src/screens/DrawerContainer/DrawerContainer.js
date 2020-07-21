@@ -11,26 +11,44 @@ export default class DrawerContainer extends React.Component {
       <View style={styles.content}>
         <View style={styles.container}>
           <MenuButton
-            title="HOME"
-            source={require('../../../assets/icons/home.png')}
+            title="Home"
             onPress={() => {
               navigation.navigate('Home');
               navigation.closeDrawer();
             }}
           />
           <MenuButton
-            title="CATEGORIES"
-            source={require('../../../assets/icons/category.png')}
+            title="Categories"
             onPress={() => {
               navigation.navigate('Categories');
               navigation.closeDrawer();
             }}
           />
           <MenuButton
-            title="CART"
-            source={require('../../../assets/icons/category.png')}
+            title="Cart"
             onPress={() => {
               navigation.navigate('Cart');
+              navigation.closeDrawer();
+            }}
+          />
+          <MenuButton
+            title="About Us"
+            onPress={() => {
+              navigation.navigate('About');
+              navigation.closeDrawer();
+            }}
+          />
+          <MenuButton
+            title="Contact Us"
+            onPress={() => {
+              navigation.navigate('Contact');
+              navigation.closeDrawer();
+            }}
+          />
+          <MenuButton
+            title="Log in"
+            onPress={() => {
+              navigation.navigate('Login');
               navigation.closeDrawer();
             }}
           />

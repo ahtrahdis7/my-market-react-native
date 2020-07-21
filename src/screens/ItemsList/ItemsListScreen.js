@@ -10,12 +10,12 @@ import {
 import styles from './styles';
 import { products } from '../../data/products';
 
-function getItemsofType(itemType){
+function getItemsofType(itemType) {
   var req = [];
   // console.log(products);
-  var count=0;
-  for(let item of products){
-    if(item.type == itemType){
+  var count = 0;
+  for (let item of products) {
+    if (item.type == itemType) {
       req.push(item);
 
     }
@@ -47,7 +47,7 @@ export default class ItemsListScreen extends React.Component {
   );
 
   render() {
-    
+
     const { navigation } = this.props;
     const itemType = navigation.getParam('itemType');
     const data = getItemsofType(itemType);

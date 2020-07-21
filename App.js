@@ -7,8 +7,6 @@ import AppContainer from './src/navigations/AppNavigation';
 export default function App() {
   const [isloggedin, setIsLoggedin] = useState(true)
 
-
-
   if (isloggedin) {
     return (
       <AppContainer />

@@ -10,16 +10,16 @@ const styles = StyleSheet.create({
   btnContainer: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   btnIcon: {
     height: 25,
     width: 25
   },
   btnText: {
-    fontSize: 16,
-    marginLeft: 10,
-    marginTop: 2
+    fontSize: 18,
+    marginLeft: 15,
+    marginTop: 4
   }
 });
 

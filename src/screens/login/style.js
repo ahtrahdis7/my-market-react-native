@@ -1,21 +1,13 @@
-const React = require("react-native");
+import { StyleSheet } from 'react-native';
 
-const { StyleSheet } = React;
-
-export default {
+const styles = StyleSheet.create({
   containerView: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#fff'
   },
   loginScreenContainer: {
     flex: 1,
-  },
-  logoText: {
-    fontSize: 40,
-    fontWeight: "800",
-    marginTop: 60,
-    marginBottom: 30,
-    textAlign: 'center',
   },
   loginFormView: {
     flex: 1,
@@ -30,7 +22,7 @@ export default {
     paddingLeft: 10,
     marginLeft: 35,
     marginRight: 35,
-    marginTop: 300,
+    marginTop: 200,
     marginBottom: 25,
   },
   otpButton: {
@@ -38,16 +30,16 @@ export default {
     borderRadius: 5,
     height: 45,
     marginTop: 10,
-    marginLeft: 130,
-    marginRight: 130
+    marginLeft: 140,
+    marginRight: 140
   },
   submitButton: {
     backgroundColor: '#3897f1',
     borderRadius: 5,
     height: 45,
     marginTop: 25,
-    marginLeft: 130,
-    marginRight: 130
+    marginLeft: 150,
+    marginRight: 150
   },
   otpinput: {
     height: 43,
@@ -83,15 +75,13 @@ export default {
   },
   header: {
     width: 400,
-    height: 300,
-
+    height: 180,
   },
   head: {
-    marginTop: 30,
+    marginTop: 0,
     position: 'absolute',
-    justifyContent: 'center',
     alignSelf: 'center'
-    // alignItems: 'center',
-    // textAlign: 'center'
   }
-};
+});
+
+export default styles;
