@@ -11,6 +11,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'flex-start',
+  },
+  logo:{
+    // flex:1,
+    height: 100,
+    width: 200,
+    // paddingLeft:30,
+    // alignItems: 'center',
+    // justifyContent: 'center'
+
   }
 });
 

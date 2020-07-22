@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import MenuButton from '../../components/MenuButton/MenuButton';
@@ -10,6 +10,7 @@ export default class DrawerContainer extends React.Component {
     return (
       <View style={styles.content}>
         <View style={styles.container}>
+          <Image style={styles.logo} source={require('./logo.jpg')}/>
           <MenuButton
             title="Home"
             onPress={() => {
