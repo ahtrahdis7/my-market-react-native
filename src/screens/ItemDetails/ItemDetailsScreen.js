@@ -29,11 +29,13 @@ export default class RecipeScreen extends React.Component {
   render() {
     const itemDetails = this.props.navigation.getParam('item');
     //itemDetails contains all the details of the specific item
-    console.log(itemDetails);
+    // console.log(itemDetails);
+    var pathimg = "../../data/images/0.png" ;
+    console.log(pathimg);
     return (
       <View style={styles.container}>
         <View>
-          <Image style={styles.photo} source={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }} />
+          <Image style={styles.photo} source={{uri: pathimg }} />
         </View>
         <Text style={styles.description}>{itemDetails.description}</Text>
         <Text style={styles.price}>Rs.{itemDetails.price}</Text>
