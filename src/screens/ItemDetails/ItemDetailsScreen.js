@@ -6,7 +6,6 @@ import {
   Dimensions
 } from 'react-native';
 import styles from './styles';
-import Carousel, { Pagination } from 'react-native-snap-carousel';
 import BackButton from '../../components/BackButton/BackButton';
 
 const { width: viewportWidth } = Dimensions.get('window');
@@ -16,22 +15,18 @@ export default class RecipeScreen extends React.Component {
     return {
       title: navigation.getParam('item').title.toUpperCase(),
       headerTransparent: 'true',
+      width: '100%',
       headerLeft: () =>
         <BackButton
           onPress={() => {
             navigation.goBack();
           }}
         />
-
     };
   }
 
   render() {
     const itemDetails = this.props.navigation.getParam('item');
-    //itemDetails contains all the details of the specific item
-    // console.log(itemDetails);
-    var pathimg = "../../data/images/0.png" ;
-    console.log(pathimg);
     return (
       <View style={styles.container}>
         <View>
