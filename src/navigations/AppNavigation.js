@@ -11,40 +11,32 @@ import AboutScreen from '../screens/About/AboutScreen';
 import ContactScreen from '../screens/Contact/ContactScreen';
 import LoginScreen from '../screens/login/login';
 
-const MainNavigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Categories: CategoriesScreen,
-    ItemDetails: ItemDetailsScreen,
-    ItemsList: ItemsListScreen,
-    About: AboutScreen,
-    Contact: ContactScreen,
-    Cart: CartScreen,
-    Login: LoginScreen
-  },
-  {
-    initialRouteName: 'Home',
+const screens = {
+  Home: HomeScreen,
+  Categories: CategoriesScreen,
+  ItemDetails: ItemDetailsScreen,
+  ItemsList: ItemsListScreen,
+  About: AboutScreen,
+  Contact: ContactScreen,
+  Cart: CartScreen,
+  Login: LoginScreen
+};
 
-    defaulfNavigationOptions: ({ navigation }) => ({
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-        alignSelf: 'center',
-        flex: 1,
-      }
-    })
+const MainNavigator = createStackNavigator(screens, {
+  defaultNavigationOptions: {
+    headerStyle: { backgroundColor: '#fff', height: 50 },
+    headerForceInset: { top: 'never' },
   }
-);
+});
 
 const DrawerStack = createDrawerNavigator(
   {
     Main: MainNavigator
   },
   {
-    hideStatusBar: true,
     drawerPosition: 'left',
     initialRouteName: 'Main',
-    drawerWidth: 250,
+    drawerWidth: 230,
     contentComponent: DrawerContainer
   }
 );
@@ -52,3 +44,4 @@ const DrawerStack = createDrawerNavigator(
 export default AppContainer = createAppContainer(DrawerStack);
 
 console.disableYellowBox = true;
+

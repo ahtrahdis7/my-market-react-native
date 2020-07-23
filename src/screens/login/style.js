@@ -22,32 +22,32 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginLeft: 35,
     marginRight: 35,
-    marginTop: 200,
+    marginTop: "50%",
     marginBottom: 25,
   },
   otpButton: {
-    backgroundColor: '#fdc400',
-    borderRadius: 5,
-    height: 45,
-    marginTop: 10,
-    marginLeft: 140,
-    marginRight: 140
-  },
-  submitButton: {
-    backgroundColor: '#fdc400',
-    borderRadius: 5,
-    height: 45,
-    marginTop: 25,
-    marginLeft: 150,
-    marginRight: 150
-  },
-  submitPartnerButton: {
     backgroundColor: '#008037',
     borderRadius: 5,
     height: 45,
-    marginTop: 100,
-    marginLeft: 100,
-    marginRight: 100
+    marginTop: 10,
+    marginLeft: "35%",
+    marginRight: "35%"
+  },
+  submitButton: {
+    backgroundColor: '#008037',
+    borderRadius: 5,
+    height: 45,
+    marginTop: 25,
+    marginLeft: "35%",
+    marginRight: "35%"
+  },
+  submitPartnerButton: {
+    backgroundColor: '#fdc400',
+    borderRadius: 5,
+    height: 45,
+    marginTop: '25%',
+    marginLeft: "25%",
+    marginRight: "25%"
   },
   otpinput: {
     height: 43,
