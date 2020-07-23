@@ -11,8 +11,11 @@ export default function LoginScreen() {
   }
   const onSubmit = () => {
     console.log("submit form");
-
   }
+  const onSubmitPartner = () => {
+    console.log("submit form");
+  }
+
   const [loginbtn, setloginbtn] = useState('Get OTP');
   const [otp, setOtp] = useState(['1', '2', '3', '4']);
   const [otpVal, setOtpVal] = useState('');
@@ -67,6 +70,11 @@ export default function LoginScreen() {
               buttonStyle={styles.submitButton}
               title="Submit"
               onPress={onSubmit}
+            />
+            <Button
+              buttonStyle={styles.submitPartnerButton}
+              title="Login as Partner"
+              onPress={onSubmitPartner}
             />
           </View>
         </View>

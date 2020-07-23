@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   otpButton: {
-    backgroundColor: '#3897f1',
+    backgroundColor: '#fdc400',
     borderRadius: 5,
     height: 45,
     marginTop: 10,
@@ -34,12 +34,20 @@ const styles = StyleSheet.create({
     marginRight: 140
   },
   submitButton: {
-    backgroundColor: '#3897f1',
+    backgroundColor: '#fdc400',
     borderRadius: 5,
     height: 45,
     marginTop: 25,
     marginLeft: 150,
     marginRight: 150
+  },
+  submitPartnerButton: {
+    backgroundColor: '#008037',
+    borderRadius: 5,
+    height: 45,
+    marginTop: 100,
+    marginLeft: 100,
+    marginRight: 100
   },
   otpinput: {
     height: 43,
@@ -57,7 +65,7 @@ const styles = StyleSheet.create({
   },
   otpBoxesContainer: {
     flexDirection: 'row',
-    marginTop: 80,
+    marginTop: 50,
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center'
