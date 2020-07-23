@@ -35,7 +35,7 @@ export default class RecipeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View>
-          <Image style={styles.photo} source={{uri: pathimg }} />
+          <Image style={styles.photo} source={require('../../data/images/0.png')} />
         </View>
         <Text style={styles.description}>{itemDetails.description}</Text>
         <Text style={styles.price}>Rs.{itemDetails.price}</Text>
