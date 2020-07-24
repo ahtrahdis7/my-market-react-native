@@ -10,7 +10,7 @@ export default class DrawerContainer extends React.Component {
     return (
       <View style={styles.content}>
         <View style={styles.container}>
-          <Image style={styles.logo} source={require('./logo.jpg')}/>
+          <Image style={styles.logo} source={require('./logo.jpg')} />
           <MenuButton
             title="Home"
             onPress={() => {
@@ -50,6 +50,13 @@ export default class DrawerContainer extends React.Component {
             title="Log in"
             onPress={() => {
               navigation.navigate('Login');
+              navigation.closeDrawer();
+            }}
+          />
+          <MenuButton
+            title="Orders"
+            onPress={() => {
+              navigation.navigate('OrderDetails');
               navigation.closeDrawer();
             }}
           />

@@ -10,6 +10,7 @@ import CartScreen from '../screens/Cart/CartScreen';
 import AboutScreen from '../screens/About/AboutScreen';
 import ContactScreen from '../screens/Contact/ContactScreen';
 import LoginScreen from '../screens/login/login';
+import OrderDetails from '../screens/OrderDetails/OrderDetailsScreen'
 
 const screens = {
   Home: HomeScreen,
@@ -19,7 +20,8 @@ const screens = {
   About: AboutScreen,
   Contact: ContactScreen,
   Cart: CartScreen,
-  Login: LoginScreen
+  Login: LoginScreen,
+  OrderDetails: OrderDetails,
 };
 
 const MainNavigator = createStackNavigator(screens, {
