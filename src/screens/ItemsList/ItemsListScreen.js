@@ -8,20 +8,7 @@ import {
   ScrollView
 } from 'react-native';
 import styles from './styles';
-// import { products } from '../../data/products';
 
-// function getItemsofType(itemType) {
-//   var req = [];
-//   // console.log(products);
-//   var count = 0;
-//   for (let item of products) {
-//     if (item.type == itemType) {
-//       req.push(item);
-
-//     }
-//   }
-//   return req;
-// }
 export default class ItemsListScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -37,7 +24,6 @@ export default class ItemsListScreen extends React.Component {
     }
   }
   getData(itemlist){
-    // console.log("hello")
     this.setState({
       itemlist: itemlist,
       render: true
@@ -46,7 +32,6 @@ export default class ItemsListScreen extends React.Component {
 
   componentDidMount(){
     const itemType = this.props.navigation.getParam('itemType');
-    // console.log(itemType)
     fetch("http://192.168.43.72:3000/api/search/category/"+itemType)
     .then(response => response.json())
     .then((itemlist) => this.getData(itemlist))
@@ -60,7 +45,6 @@ export default class ItemsListScreen extends React.Component {
   };
 
   renderMenuItem = ({ item }) => {
-    // console.log(item)
     return(
       <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.onPressItem(item)}
       >
@@ -77,7 +61,6 @@ export default class ItemsListScreen extends React.Component {
 
     const { navigation } = this.props;
     const data = this.state.itemlist;
-    // console.log(data);
     if(data != undefined)
     return (
       <ScrollView>
