@@ -13,7 +13,7 @@ const { width: viewportWidth } = Dimensions.get('window');
 export default class RecipeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: navigation.getParam('item').title.toUpperCase(),
+      title: navigation.getParam('item').name.toUpperCase(),
       headerTransparent: 'true',
       width: '100%',
       headerLeft: () =>
@@ -27,14 +27,15 @@ export default class RecipeScreen extends React.Component {
 
   render() {
     const itemDetails = this.props.navigation.getParam('item');
+    // console.log(itemDetails.key)
     return (
       <View style={styles.container}>
         <View>
-          <Image style={styles.photo} source={require('../../data/images/0.png')} />
+          <Image style={styles.photo} source={{uri: "data:image/png;base64,"+itemDetails.imageLink}} />
         </View>
-        <Text style={styles.description}>{itemDetails.description}</Text>
+        <Text style={styles.description}>{itemDetails.title}</Text>
         <Text style={styles.price}>Rs.{itemDetails.price}</Text>
-        <Text style={styles.review}>Review-{itemDetails.rating} star</Text>
+        {/* <Text style={styles.review}>Review-{itemDetails.rating} star</Text> */}
       </View>
     );
   }
