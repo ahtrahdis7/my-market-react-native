@@ -20,6 +20,7 @@ export default function LoginScreen(props) {
           "phone": '+91'+phoneNumber
         })
       })
+      .then(res => res.json())
       .then(function(res) {
         if(res.status == 200){
           alert("OTP sent successfully")
@@ -45,6 +46,7 @@ export default function LoginScreen(props) {
           "otp": otpVal
         })
       })
+      .then(res => res.json())
       .then(function(res) {
         if(res.status == 200) {
           alert('success');

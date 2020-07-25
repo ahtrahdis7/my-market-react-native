@@ -17,56 +17,74 @@ export default class CategoriesScreen extends React.Component {
   };
 
   constructor(props) {
+
     super(props);
+    this.state = {
+      categories: []
+    }
+  }
+
+  getData(categories){
+    // console.log("hello")
+    this.setState({
+      categories: categories
+    })
+  }
+
+  componentDidMount(){
+    // console.log(this.state)
+
+    fetch("http://192.168.43.72:3000/api/search/getCategories")
+    .then(response => response.json())
+    .then((categories) => this.getData(categories))
+    .catch(err => console.log(err));
+      // console.log(categories);
   }
 
 
 
   render() {
     const { navigate } = this.props.navigation;
-    var data = products;
-    data.sort(function (a, b) { return a.type > b.type });
-    let map = new Map();
-    for (var itr = 0; itr < data.length; itr++) {
-      var val = map.get(data[itr].type);
-      if (val == undefined)
-        map.set(data[itr].type, 1);
+    
+    const renderMenuItem = ( item ) => {
+      console.log(item)
+      return(
+        <View style={styles.card}>
+          <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'
+          >
+            <View style={styles.categoriesItemContainer}>
+              <Tile
+                key={item.index}
+                title={item.item}
+                featured
+                // style={styles.categoriesPhoto}
+                onPress={() => navigate('ItemsList', { itemType: item })}
+                imageSrc={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }}
+              />
+            </View>
+          </TouchableHighlight>
+        </View>
+      )
+    };
+    const data = this.state.categories;
+    console.log(this.state.categories);
+    if(data != undefined)
+      return (
+        <ScrollView>
+          <FlatList
+            vertical
+            showsVerticalScrollIndicator={false}
+            data={data}
+            renderItem={renderMenuItem}
+            keyExtractor={item => item}
+          />
+        </ScrollView>
+      );
       else
-        map.set(data[itr].type, val + 1);
-    }
-    var categories = [];
-    for (let key of map) {
-      categories.push({ type: key[0], count: key[1] })
-    }
-    const renderMenuItem = ({ item }) => (
-      <View style={styles.card}>
-        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'
-        >
-          <View style={styles.categoriesItemContainer}>
-            <Tile
-              key={item.type}
-              title={item.type}
-              caption={item.count}
-              featured
-              // style={styles.categoriesPhoto}
-              onPress={() => navigate('ItemsList', { itemType: item.type })}
-              imageSrc={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }}
-            />
-          </View>
-        </TouchableHighlight>
+    return(
+      <View>
+        <Text>Check Your Network</Text>
       </View>
-    );
-    // console.log(categories);
-    return (
-      <ScrollView>
-        <FlatList
-          vertical
-          showsVerticalScrollIndicator={false}
-          data={categories}
-          renderItem={renderMenuItem}
-          keyExtractor={item => item.type}
-        />
-      </ScrollView>
-    );
+    )
   }
 }
