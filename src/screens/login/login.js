@@ -5,7 +5,8 @@ import { Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, Keybo
 import { Button } from 'react-native-elements';
 import AppContainer from '../../navigations/AppNavigation';
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
+  console.log(props)
   const onOtpPress = () => {
     if(phoneNumber.length == 10){
       fetch('http://192.168.43.72:3000/api/login/init', 
@@ -20,7 +21,9 @@ export default function LoginScreen() {
         })
       })
       .then(function(res) {
-        alert(res.status);
+        alert("hellp")
+        console.log("hello")
+        alert(res.body.status);
       })
       .catch(function (error) {
         console.log(error);
@@ -30,12 +33,39 @@ export default function LoginScreen() {
     }
   }
   const onSubmit = () => {
-    console.log("submit form");
+    // if(otpVal.length == 6){
+      fetch('http://192.168.43.72:3000/api/login/verify', 
+      {
+        method: 'POST',
+        headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "phone": '+91'+phoneNumber,
+          "otp": otpVal
+        })
+      })
+      .then(function(res) {
+        // console.log(res);
+        if(res.status == 200) {
+          alert('success');
+          props.navigation.navigate('Home')
+        }
+        // alert(res.status);
+      })
+      .catch(function (error) {
+        
+        console.log("error");
+      });
+    // }else{
+    //   alert('Invalid OTP')
+    // }
   }
   const onSubmitPartner = () => {
     console.log("submit form");
   }
-  const [phoneNumber, onChangeNumber] = useState('phone')
+  const [phoneNumber, onChangeNumber] = useState('')
   const [loginbtn, setloginbtn] = useState('Get OTP');
   const [otp, setOtp] = useState(['1', '2', '3', '4']);
   const [otpVal, setOtpVal] = useState('');
@@ -63,7 +93,7 @@ export default function LoginScreen() {
               onPress={onOtpPress}
               title={loginbtn}
             />
-            <TextInput
+            {/* <TextInput
               keyboardType="numeric"
               onChangeText={value => {
                 if (isNaN(value)) {
@@ -87,7 +117,16 @@ export default function LoginScreen() {
                   {otp[item]}
                 </Text>
               ))}
-            </View>
+            </View> */}
+            <TextInput
+              maxLength={6}
+              keyboardType="numeric"
+              placeholder="OTP"
+              placeholderColor="#c4c3cb"
+              style={styles.otpBoxesContainer}
+              value={otpVal}
+              onChangeText={text => setOtpVal(text)}
+            />
             <Button
               buttonStyle={styles.submitButton}
               title="Submit"
