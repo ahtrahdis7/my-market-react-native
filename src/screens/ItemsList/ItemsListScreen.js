@@ -8,20 +8,20 @@ import {
   ScrollView
 } from 'react-native';
 import styles from './styles';
-import { products } from '../../data/products';
+// import { products } from '../../data/products';
 
-function getItemsofType(itemType) {
-  var req = [];
-  // console.log(products);
-  var count = 0;
-  for (let item of products) {
-    if (item.type == itemType) {
-      req.push(item);
+// function getItemsofType(itemType) {
+//   var req = [];
+//   // console.log(products);
+//   var count = 0;
+//   for (let item of products) {
+//     if (item.type == itemType) {
+//       req.push(item);
 
-    }
-  }
-  return req;
-}
+//     }
+//   }
+//   return req;
+// }
 export default class ItemsListScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -31,26 +31,54 @@ export default class ItemsListScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state={
+      itemlist: [],
+      render: true
+    }
   }
+  getData(itemlist){
+    // console.log("hello")
+    this.setState({
+      itemlist: itemlist,
+      render: true
+    })
+  }
+
+  componentDidMount(){
+    const itemType = this.props.navigation.getParam('itemType');
+    // console.log(itemType)
+    fetch("http://192.168.43.72:3000/api/search/category/"+itemType)
+    .then(response => response.json())
+    .then((itemlist) => this.getData(itemlist))
+    .catch(err => console.log(err));
+
+    console.log(this.state.itemlist)
+  }
+
   onPressItem = item => {
     this.props.navigation.navigate('ItemDetails', { item: item });
   };
 
-  renderMenuItem = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.onPressItem(item)}
-    >
-      <View style={styles.container}>
-        <Image style={styles.photo} source={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }} />
-        <Text style={styles.title}>{item.title}</Text>
-      </View>
-    </TouchableHighlight>
-  );
+  renderMenuItem = ({ item }) => {
+    // console.log(item)
+    return(
+      <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.onPressItem(item)}
+      >
+        <View style={styles.container}>
+          <Image style={styles.photo} source={{ uri: "data:image/png;base64,"+item.imageLink }} />
+          <Text style={styles.title}>{item.name}</Text>
+        </View>
+      </TouchableHighlight>
+    )
+  };
+  
 
   render() {
 
     const { navigation } = this.props;
-    const itemType = navigation.getParam('itemType');
-    const data = getItemsofType(itemType);
+    const data = this.state.itemlist;
+    // console.log(data);
+    if(data != undefined)
     return (
       <ScrollView>
         <FlatList
@@ -59,9 +87,15 @@ export default class ItemsListScreen extends React.Component {
           data={data}
           renderItem={this.renderMenuItem}
           numColumns={2}
-          keyExtractor={item => item.filename.split(".")[0]}
+          keyExtractor={item => item._id}
         />
       </ScrollView>
     );
+    else 
+    return(
+      <View>
+        <Text>Check Your Network</Text>
+      </View>
+    )
   }
 }

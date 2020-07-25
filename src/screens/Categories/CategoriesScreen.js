@@ -47,7 +47,7 @@ export default class CategoriesScreen extends React.Component {
     const { navigate } = this.props.navigation;
     
     const renderMenuItem = ( item ) => {
-      console.log(item)
+      // console.log(item)
       return(
         <View style={styles.card}>
           <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'
@@ -58,7 +58,7 @@ export default class CategoriesScreen extends React.Component {
                 title={item.item}
                 featured
                 // style={styles.categoriesPhoto}
-                onPress={() => navigate('ItemsList', { itemType: item })}
+                onPress={() => navigate('ItemsList', { itemType: item.item })}
                 imageSrc={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }}
               />
             </View>
@@ -67,7 +67,7 @@ export default class CategoriesScreen extends React.Component {
       )
     };
     const data = this.state.categories;
-    console.log(this.state.categories);
+    // console.log(this.state.categories);
     if(data != undefined)
       return (
         <ScrollView>
