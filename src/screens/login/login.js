@@ -21,19 +21,18 @@ export default function LoginScreen(props) {
         })
       })
       .then(function(res) {
-        alert("hellp")
-        console.log("hello")
-        alert(res.body.status);
+        if(res.status == 200){
+          alert("OTP sent successfully")
+        }
       })
       .catch(function (error) {
-        console.log(error);
+        alert(error);
       });
     }else{
       alert('Invalid Phone Number')
     }
   }
   const onSubmit = () => {
-    // if(otpVal.length == 6){
       fetch('http://192.168.43.72:3000/api/login/verify', 
       {
         method: 'POST',
@@ -47,20 +46,17 @@ export default function LoginScreen(props) {
         })
       })
       .then(function(res) {
-        // console.log(res);
         if(res.status == 200) {
           alert('success');
           props.navigation.navigate('Home')
+        }else{
+          alert('try again')
         }
-        // alert(res.status);
       })
       .catch(function (error) {
-        
-        console.log("error");
+        alert(error);
       });
-    // }else{
-    //   alert('Invalid OTP')
-    // }
+
   }
   const onSubmitPartner = () => {
     console.log("submit form");
