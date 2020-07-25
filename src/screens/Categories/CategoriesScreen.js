@@ -8,7 +8,6 @@ import {
   TouchableHighlight
 } from 'react-native';
 import styles from './styles';
-import { products } from '../../data/products';
 import { Tile } from 'react-native-elements';
 
 export default class CategoriesScreen extends React.Component {
@@ -53,10 +52,10 @@ export default class CategoriesScreen extends React.Component {
             <View style={styles.categoriesItemContainer}>
               <Tile
                 key={item.index}
-                title={item.item}
+                title={item.item.toUpperCase()}
                 featured
                 onPress={() => navigate('ItemsList', { itemType: item.item })}
-                imageSrc={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }}
+                imageSrc={require('../../image.png')}
               />
             </View>
           </TouchableHighlight>

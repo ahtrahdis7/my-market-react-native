@@ -21,7 +21,7 @@ export default function LoginScreen(props) {
         })
         .then(res => res.json())
         .then(function (res) {
-          if (res.status == 200) {
+          if (res != undefined) {
             alert("OTP sent successfully")
           }
         })
@@ -47,7 +47,8 @@ export default function LoginScreen(props) {
       })
       .then(res => res.json())
       .then(function (res) {
-        if (res.status == 200) {
+        console.log(res)
+        if (res!= null) {
           alert('success');
           props.navigation.navigate('Home')
         } else {

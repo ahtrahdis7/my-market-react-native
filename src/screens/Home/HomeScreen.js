@@ -4,7 +4,6 @@ import styles from './styles';
 import MenuImage from '../../components/MenuImage/MenuImage';
 import { products } from '../../data/products';
 
-const imagePath = "../../data/images/";
 export default class HomeScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
@@ -28,7 +27,7 @@ export default class HomeScreen extends React.Component {
     <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'
       onPress={() => this.onPressItem(item)}>
       <View style={styles.container}>
-        <Image style={styles.photo} source={{ uri: "https://images.unsplash.com/photo-1533777324565-a040eb52facd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" }} />
+        <Image style={styles.photo} source={require('../../image.png')} />
         <Text style={styles.title}>{item.title}</Text>
       </View>
     </TouchableHighlight>
