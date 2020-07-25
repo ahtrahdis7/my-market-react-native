@@ -7,7 +7,27 @@ import AppContainer from '../../navigations/AppNavigation';
 
 export default function LoginScreen() {
   const onOtpPress = () => {
-    alert("OTP sent successfully")
+    if(phoneNumber.length == 10){
+      fetch('http://192.168.43.72:3000/api/login/init', 
+      {
+        method: 'POST',
+        headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "phone": '+91'+phoneNumber
+        })
+      })
+      .then(function(res) {
+        alert(res.status);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }else{
+      alert('Invalid Phone Number')
+    }
   }
   const onSubmit = () => {
     console.log("submit form");
@@ -15,7 +35,7 @@ export default function LoginScreen() {
   const onSubmitPartner = () => {
     console.log("submit form");
   }
-
+  const [phoneNumber, onChangeNumber] = useState('phone')
   const [loginbtn, setloginbtn] = useState('Get OTP');
   const [otp, setOtp] = useState(['1', '2', '3', '4']);
   const [otpVal, setOtpVal] = useState('');
@@ -30,11 +50,13 @@ export default function LoginScreen() {
               </ImageBackground>
             </View>
             <TextInput
-              maxLength={10}
+              maxLength={13}
               keyboardType="numeric"
               placeholder="Phone Number"
               placeholderColor="#c4c3cb"
               style={styles.loginFormTextInput}
+              value={phoneNumber}
+              onChangeText={text => onChangeNumber(text)}
             />
             <Button
               buttonStyle={styles.otpButton}
