@@ -53,13 +53,6 @@ export default class DrawerContainer extends React.Component {
               navigation.closeDrawer();
             }}
           />
-          <MenuButton
-            title="Orders"
-            onPress={() => {
-              navigation.navigate('OrderDetails');
-              navigation.closeDrawer();
-            }}
-          />
         </View>
       </View>
     );
