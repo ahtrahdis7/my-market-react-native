@@ -14,14 +14,6 @@ export default class RecipeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: navigation.getParam('item').name.toUpperCase(),
-      headerTransparent: 'true',
-      width: '100%',
-      headerLeft: () =>
-        <BackButton
-          onPress={() => {
-            navigation.goBack();
-          }}
-        />
     };
   }
 
