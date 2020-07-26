@@ -8,7 +8,6 @@ import {
   TouchableHighlight
 } from 'react-native';
 import styles from './styles';
-import { Tile } from 'react-native-elements';
 
 export default class CategoriesScreen extends React.Component {
   static navigationOptions = {
@@ -23,63 +22,57 @@ export default class CategoriesScreen extends React.Component {
     }
   }
 
-  getData(categories){
+  getData(categories) {
     // console.log("hello")
     this.setState({
       categories: categories
     })
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // console.log(this.state)
 
-    fetch("http://192.168.43.72:3000/api/search/getCategories")
-    .then(response => response.json())
-    .then((categories) => this.getData(categories))
-    .catch(err => console.log(err));
+    fetch("http://192.168.43.55:3000/api/search/getCategories")
+      .then(response => response.json())
+      .then((categories) => this.getData(categories))
+      .catch(err => console.log(err));
   }
 
 
 
   render() {
     const { navigate } = this.props.navigation;
-    
-    const renderMenuItem = ( item ) => {
-      return(
-        <View style={styles.card}>
-          <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'
-          >
-            <View style={styles.categoriesItemContainer}>
-              <Tile
-                key={item.index}
-                title={item.item.toUpperCase()}
-                featured
-                onPress={() => navigate('ItemsList', { itemType: item.item })}
-                imageSrc={require('../../image.png')}
-              />
-            </View>
-          </TouchableHighlight>
-        </View>
+
+    const renderMenuItem = (item) => {
+      return (
+        <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'
+          onPress={() => navigate('ItemsList', { itemType: item.item })}>
+          <View style={styles.container}>
+            <Image style={styles.photo} source={require('../../image.png')} />
+            <Text style={styles.title}>{item.item.toUpperCase()}</Text>
+          </View>
+        </TouchableHighlight>
       )
     };
     const data = this.state.categories;
-    if(data != undefined)
+    if (data != undefined)
       return (
         <ScrollView>
           <FlatList
             vertical
             showsVerticalScrollIndicator={false}
             data={data}
+            numColumns={2}
             renderItem={renderMenuItem}
             keyExtractor={item => item}
           />
         </ScrollView>
       );
-      else
-    return(
-      <View>
-        <Text>Check Your Network</Text>
-      </View>
-    )
+    else
+      return (
+        <View>
+          <Text>Check Your Network</Text>
+        </View>
+      )
   }
 }

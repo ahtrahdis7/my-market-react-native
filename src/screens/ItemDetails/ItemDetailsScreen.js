@@ -27,15 +27,14 @@ export default class RecipeScreen extends React.Component {
 
   render() {
     const itemDetails = this.props.navigation.getParam('item');
-    // console.log(itemDetails.key)
+    // console.log(itemDetails)
     return (
       <View style={styles.container}>
         <View>
-          <Image style={styles.photo} source={{uri: "data:image/png;base64,"+itemDetails.imageLink}} />
+          <Image style={styles.photo} source={{ uri: "data:image/png;base64," + itemDetails.imageLink }} />
         </View>
-        <Text style={styles.description}>{itemDetails.title}</Text>
+        <Text style={styles.description}>{itemDetails.name}</Text>
         <Text style={styles.price}>Rs.{itemDetails.price}</Text>
-        {/* <Text style={styles.review}>Review-{itemDetails.rating} star</Text> */}
       </View>
     );
   }

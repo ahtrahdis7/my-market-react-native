@@ -18,24 +18,24 @@ export default class ItemsListScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       itemlist: [],
       render: true
     }
   }
-  getData(itemlist){
+  getData(itemlist) {
     this.setState({
       itemlist: itemlist,
       render: true
     })
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const itemType = this.props.navigation.getParam('itemType');
-    fetch("http://192.168.43.72:3000/api/search/category/"+itemType)
-    .then(response => response.json())
-    .then((itemlist) => this.getData(itemlist))
-    .catch(err => console.log(err));
+    fetch("http://192.168.43.55:3000/api/search/category/" + itemType)
+      .then(response => response.json())
+      .then((itemlist) => this.getData(itemlist))
+      .catch(err => console.log(err));
 
     console.log(this.state.itemlist)
   }
@@ -45,40 +45,40 @@ export default class ItemsListScreen extends React.Component {
   };
 
   renderMenuItem = ({ item }) => {
-    return(
+    return (
       <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)' onPress={() => this.onPressItem(item)}
       >
         <View style={styles.container}>
-          <Image style={styles.photo} source={{ uri: "data:image/png;base64,"+item.imageLink }} />
+          <Image style={styles.photo} source={{ uri: "data:image/png;base64," + item.imageLink }} />
           <Text style={styles.title}>{item.name}</Text>
         </View>
       </TouchableHighlight>
     )
   };
-  
+
 
   render() {
 
     const { navigation } = this.props;
     const data = this.state.itemlist;
-    if(data != undefined)
-    return (
-      <ScrollView>
-        <FlatList
-          vertical
-          showsVerticalScrollIndicator={false}
-          data={data}
-          renderItem={this.renderMenuItem}
-          numColumns={2}
-          keyExtractor={item => item._id}
-        />
-      </ScrollView>
-    );
-    else 
-    return(
-      <View>
-        <Text>Check Your Network</Text>
-      </View>
-    )
+    if (data != undefined)
+      return (
+        <ScrollView>
+          <FlatList
+            vertical
+            showsVerticalScrollIndicator={false}
+            data={data}
+            renderItem={this.renderMenuItem}
+            numColumns={2}
+            keyExtractor={item => item._id}
+          />
+        </ScrollView>
+      );
+    else
+      return (
+        <View>
+          <Text>Check Your Network</Text>
+        </View>
+      )
   }
 }

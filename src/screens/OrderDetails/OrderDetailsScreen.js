@@ -6,11 +6,10 @@ import styles from './styles';
 
 export default function App() {
     const [orders, setorder] = useState([
-        { CustName: 'lorem ipsum', key: '1', Contact: "9876543210", Address: "lorem ipsum sit ipsum" },
-        { CustName: 'lorem ipsum', key: '2', Contact: "9876543210", Address: "lorem ipsum sit ipsum" },
-        { CustName: 'lorem ipsum', key: '3', Contact: "9876543210", Address: "lorem ipsum sit ipsum" },
-        { CustName: 'lorem ipsum', key: '4', Contact: "9876543210", Address: "lorem ipsum sit ipsum" },
-
+        { CustName: 'Ramachandra Panda', key: '1', Contact: "+919876543210", Address: "Shaheed Nagar 1st line" },
+        { CustName: 'Harekrushna Mishra', key: '2', Contact: "+919876543210", Address: "Baramunda 3rd line" },
+        { CustName: 'Ajitesh Panda', key: '3', Contact: "+919876543210", Address: "Gothapatna 2nd line" },
+        { CustName: 'Sidhrtha Mallick', key: '4', Contact: "+919876543210", Address: "Master Canteen 3rd line" },
     ]);
 
     const pressHandler = (key) => {

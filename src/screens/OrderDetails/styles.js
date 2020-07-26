@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     },
     done: {
         flex: 1,
-        alignSelf: "flex-end"
+        alignSelf: "flex-end",
+        fontSize: 30
     },
     container: {
         flex: 1,

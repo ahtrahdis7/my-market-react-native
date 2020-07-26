@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer'
 import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from '../screens/Home/HomeScreen';
-import CategoriesScreen from '../screens/Categories/CategoriesScreen';
+// import CategoriesScreen from '../screens/Categories/CategoriesScreen';
 import ItemDetailsScreen from '../screens/ItemDetails/ItemDetailsScreen';
 import ItemsListScreen from '../screens/ItemsList/ItemsListScreen';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
@@ -14,7 +14,7 @@ import OrderDetails from '../screens/OrderDetails/OrderDetailsScreen'
 
 const screens = {
   Home: HomeScreen,
-  Categories: CategoriesScreen,
+  // Categories: CategoriesScreen,
   ItemDetails: ItemDetailsScreen,
   ItemsList: ItemsListScreen,
   About: AboutScreen,
