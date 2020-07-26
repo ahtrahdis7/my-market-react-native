@@ -8,7 +8,7 @@ export default function LoginScreen(props) {
   // console.log(props)
   const onOtpPress = () => {
     if (phoneNumber.length == 10) {
-      fetch('http://192.168.43.72:3000/api/login/init',
+      fetch('http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/login/init',
         {
           method: 'POST',
           headers: {
@@ -33,7 +33,7 @@ export default function LoginScreen(props) {
     }
   }
   const onSubmit = () => {
-    fetch('http://192.168.43.72:3000/api/login/verify',
+    fetch('http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/login/verify',
       {
         method: 'POST',
         headers: {

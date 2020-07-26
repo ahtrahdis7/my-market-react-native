@@ -37,7 +37,7 @@ export default class HomeScreen extends React.Component {
 
   componentDidMount() {
     // console.log(this.state)
-    fetch("http://192.168.43.55:3000/api/search/getCategories")
+    fetch("http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/search/getCategories")
       .then(response => response.json())
       .then((categories) => this.getData(categories))
       .catch(err => console.log(err));

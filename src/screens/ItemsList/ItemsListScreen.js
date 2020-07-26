@@ -32,7 +32,7 @@ export default class ItemsListScreen extends React.Component {
 
   componentDidMount() {
     const itemType = this.props.navigation.getParam('itemType');
-    fetch("http://192.168.43.55:3000/api/search/category/" + itemType)
+    fetch("http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/search/category/" + itemType)
       .then(response => response.json())
       .then((itemlist) => this.getData(itemlist))
       .catch(err => console.log(err));
