@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   imagecontainer: {
-    width: wp("26%"),
-    height: wp("26%"),
+    width: wp("24%"),
+    height: wp("24%"),
     marginRight: 10
   },
   image: {

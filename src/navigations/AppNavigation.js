@@ -11,9 +11,11 @@ import AboutScreen from '../screens/About/AboutScreen';
 import ContactScreen from '../screens/Contact/ContactScreen';
 import LoginScreen from '../screens/login/login';
 import OrderDetails from '../screens/OrderDetails/OrderDetailsScreen'
+import SearchScreen from '../screens/Search/SearchScreen'
 
 const screens = {
   Home: HomeScreen,
+  Search: SearchScreen,
   // Categories: CategoriesScreen,
   ItemDetails: ItemDetailsScreen,
   ItemsList: ItemsListScreen,

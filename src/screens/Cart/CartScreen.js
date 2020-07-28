@@ -19,22 +19,22 @@ class Cart extends Component {
             <CartItem
               editIcon={true}
               imageUri={require("../../../assets/logo.png")}
-              name="Dress Helena"
-              price={120}
+              name="oil 1 litre"
+              price={105}
               {...this.props}
             />
             <CartItem
               editIcon={true}
               imageUri={require("../../../assets/logo.png")}
-              name="Dress Marie-Anne short"
+              name="atta 5kg"
               price={180}
               {...this.props}
             />
             <CartItem
               editIcon={true}
               imageUri={require("../../../assets/logo.png")}
-              name="Dress Marie-Anne short"
-              price={180}
+              name="handwash"
+              price={90}
               {...this.props}
             />
           </ScrollView>
@@ -47,7 +47,7 @@ class Cart extends Component {
         >
           <View style={styles.totalcontainer}>
             <Text style={styles.total}>Total</Text>
-            <Text style={styles.total}>Rs.{200}</Text>
+            <Text style={styles.total}>Rs.{275}</Text>
           </View>
           <View style={styles.checkoutcontainer}>
             <TouchableOpacity
