@@ -33,13 +33,6 @@ export default class DrawerContainer extends React.Component {
             }}
           />
           <MenuButton
-            title="About Us"
-            onPress={() => {
-              navigation.navigate('About');
-              navigation.closeDrawer();
-            }}
-          />
-          <MenuButton
             title="Contact Us"
             onPress={() => {
               navigation.navigate('Contact');

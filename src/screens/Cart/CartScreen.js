@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, TouchableOpacity,FlatList, AsyncStorage } from "react-native";
+import { View, ScrollView, Text, TouchableOpacity, FlatList, AsyncStorage } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Icon from "@expo/vector-icons/Ionicons";
 import CartItem from "./CartItem";
 import styles from './styles'
 
-function sleepFor( sleepDuration ){
+function sleepFor(sleepDuration) {
   var now = new Date().getTime();
-  while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
+  while (new Date().getTime() < now + sleepDuration) { /* do nothing */ }
 }
 
-  function calculatePrice(itemlist){
-    var price=0;
-    for(let i of itemlist){
-      price = price + i.price;
-    }
-    return price
+function calculatePrice(itemlist) {
+  var price = 0;
+  for (let i of itemlist) {
+    price = price + i.price;
   }
+  return price
+}
 
 
 class Cart extends Component {
@@ -31,8 +31,8 @@ class Cart extends Component {
   }
 
 
-  async getData(){
-    var user = await AsyncStorage.getItem('user');  
+  async getData() {
+    var user = await AsyncStorage.getItem('user');
     var parsedUser = JSON.parse(user);
     // console.log(parsedUser.cart)
     this.setState({
@@ -41,7 +41,7 @@ class Cart extends Component {
     })
     // return parsedUser;  
   }
-  componentDidMount(){
+  componentDidMount() {
     this.getData();
     console.log("inside component did mount")
   }
@@ -54,7 +54,7 @@ class Cart extends Component {
         imageUri={{ uri: "data:image/png;base64," + item.imageLink }}
         name={item.name}
         price={item.price}
-    />
+      />
     )
   };
 
@@ -98,7 +98,7 @@ class Cart extends Component {
           <View style={styles.checkoutcontainer}>
             <TouchableOpacity
               activeOpacity={0.8}
-              //onPress={() => this.props.navigation.navigate("Checkout")}
+              onPress={() => this.props.navigation.navigate("Checkout")}
               style={styles.checkoutbtn}
             >
               <View

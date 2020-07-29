@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer'
 import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from '../screens/Home/HomeScreen';
-// import CategoriesScreen from '../screens/Categories/CategoriesScreen';
+import CheckoutScreen from '../screens/Checkout/CheckoutScreen';
 import ItemDetailsScreen from '../screens/ItemDetails/ItemDetailsScreen';
 import ItemsListScreen from '../screens/ItemsList/ItemsListScreen';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
@@ -16,12 +16,12 @@ import SearchScreen from '../screens/Search/SearchScreen'
 const screens = {
   Home: HomeScreen,
   Search: SearchScreen,
-  // Categories: CategoriesScreen,
   ItemDetails: ItemDetailsScreen,
   ItemsList: ItemsListScreen,
   About: AboutScreen,
   Contact: ContactScreen,
   Cart: CartScreen,
+  Checkout: CheckoutScreen,
   Login: LoginScreen,
   OrderDetails: OrderDetails,
 };
