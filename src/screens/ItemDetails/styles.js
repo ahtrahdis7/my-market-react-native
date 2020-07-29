@@ -11,10 +11,9 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10
   },
-  description: {
-    paddingTop: 10,
-    fontWeight: 'bold',
-    fontSize: 18,
+  title: {
+    fontFamily: 'comic-bold',
+    fontSize: 20,
   },
   price: {
     paddingTop: 20,
@@ -29,6 +28,12 @@ const styles = StyleSheet.create({
   photo: {
     height: 450,
     width: 450
+  },
+  addbtn: {
+    backgroundColor: "#008037",
+    margin: 10,
+    padding: 10,
+    fontFamily: 'lilita-regular',
   }
 });
 export default styles;

@@ -8,10 +8,11 @@ export default function TodoItem({ pressHandler, item }) {
     <TouchableOpacity >
       <View style={styles.item}>
         <Text style={styles.itemText}>OrderId : {item.key}</Text>
-        <Text style={styles.itemText}>Costumer Name : {item.CustName}</Text>
+        <Text style={styles.itemText}>Product Name : {item.productName}</Text>
+        <Text style={styles.itemText}>Price : {item.price}</Text>
+        <Text style={styles.itemText}>Quantity : {item.quantity}</Text>
         <Text style={styles.itemText}>Contact : {item.Contact}</Text>
         <Text style={styles.itemText}>Address : {item.Address}</Text>
-        <MaterialIcons style={styles.done} onPress={() => pressHandler(item.key)} name='check-circle' Text="done" size={18} color='#545' />
       </View>
     </TouchableOpacity>
   )

@@ -56,7 +56,6 @@ export default class ItemsListScreen extends React.Component {
     )
   };
 
-
   render() {
 
     const { navigation } = this.props;

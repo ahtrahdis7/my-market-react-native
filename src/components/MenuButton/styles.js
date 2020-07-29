@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     width: 25
   },
   btnText: {
-    fontSize: 18,
+    fontSize: 20,
+    fontFamily:'comic-bold',
+    fontWeight:'500',
     marginLeft: 15,
     marginTop: 4
   }

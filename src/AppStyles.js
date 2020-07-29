@@ -17,26 +17,27 @@ export const RecipeCard = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: RECIPE_ITEM_MARGIN,
-    marginTop: 20,
+    marginTop: 13,
+    marginBottom: 7,
     width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
-    height: RECIPE_ITEM_HEIGHT + 65,
+    height: RECIPE_ITEM_HEIGHT + 45,
     borderColor: '#545454',
     borderWidth: 0.15,
     borderRadius: 5
   },
   photo: {
     width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
-    height: RECIPE_ITEM_HEIGHT,
+    height: RECIPE_ITEM_HEIGHT - 20,
     borderRadius: 5,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0
   },
   title: {
     flex: 1,
-    fontSize: 17,
-    fontWeight: 'bold',
+    fontFamily: 'comic-bold',
+    fontSize: 18,
     textAlign: 'center',
-    color: '#444444',
+    color: '#545454',
     height: 200,
     marginTop: 15,
     marginRight: 5,
@@ -44,6 +45,7 @@ export const RecipeCard = StyleSheet.create({
   },
   category: {
     marginTop: 5,
-    marginBottom: 5
+    marginBottom: 5,
+    fontFamily: 'lilita'
   }
 });

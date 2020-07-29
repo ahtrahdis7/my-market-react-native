@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 const styles = StyleSheet.create({
@@ -43,7 +42,8 @@ const styles = StyleSheet.create({
   },
   total: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'comic-bold',
   },
   cartitemcontainer: {
     height: wp("28%"),
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around"
   },
   itemname: {
-    fontSize: 18,
-    fontWeight: "bold"
+    fontSize: 20,
+    fontFamily: 'comic-bold',
   },
   pricecontainer: {
     flex: 2,
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   price: {
-    fontSize: 18,
-    fontWeight: "bold"
+    fontSize: 20,
+    fontFamily: 'comic-bold',
   }
 });
 
