@@ -3,6 +3,7 @@ import styles from "./style";
 import logo from '../../../assets/logo.jpg';
 import { Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements';
+import {AsyncStorage} from 'react-native';  
 
 export default function LoginScreen(props) {
   // console.log(props)
@@ -46,10 +47,19 @@ export default function LoginScreen(props) {
         })
       })
       .then(res => res.json())
-      .then(function (res) {
-        console.log(res)
+      .then( async function (res) {
         if (res!= null) {
           alert('success');
+          console.log(res);
+          AsyncStorage.setItem('user',JSON.stringify(res));  
+
+          var user = await AsyncStorage.getItem('user');  
+          var parsed = JSON.parse(user);  
+
+          console.log('fetched user');
+          console.log(parsed);
+
+
           props.navigation.navigate('Home')
         } else {
           alert('try again')
@@ -94,7 +104,6 @@ export default function LoginScreen(props) {
             <TextInput
               maxLength={6}
               keyboardType="numeric"
-              placeholder="OTP"
               placeholderColor="#c4c3cb"
               style={styles.OtpInput}
               value={otpVal}
