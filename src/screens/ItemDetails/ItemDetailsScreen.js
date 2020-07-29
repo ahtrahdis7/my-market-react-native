@@ -18,7 +18,7 @@ async function addtocart(props){
   var parsedUser = JSON.parse(user);  
 
   console.log('fetched user');
-  console.log(parsedUser);
+  // console.log(parsedUser);
 
   if(parsedUser == null){
     alert('login first')
