@@ -98,7 +98,7 @@ class Cart extends Component {
           <View style={styles.checkoutcontainer}>
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => this.props.navigation.navigate("Checkout")}
+              onPress={() => this.props.navigation.navigate("Checkout", {data: data})}
               style={styles.checkoutbtn}
             >
               <View
