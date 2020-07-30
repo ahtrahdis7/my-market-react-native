@@ -80,9 +80,9 @@ class Cart extends Component {
     var price = this.state.price;
     // console.log('price')
     // console.log(price)
-    for(var i in data[0]){
-      console.log(i)
-    }
+    // for(var i in data[0]){
+    //   console.log(i)
+    // }
     return (
       <View
         style={{
