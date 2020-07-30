@@ -43,7 +43,7 @@ class Cart extends Component {
   }
   componentDidMount() {
     this.getData();
-    console.log("inside component did mount")
+    // console.log("inside component did mount")
   }
 
   renderMenuItem = ({ item }) => {
@@ -62,10 +62,10 @@ class Cart extends Component {
 
   render() {
     var data = this.state.itemlist;
-    console.log('after get  data ')
+    // console.log('after get  data ')
     var price = this.state.price;
-    console.log('price')
-    console.log(price)
+    // console.log('price')
+    // console.log(price)
 
     return (
       <View

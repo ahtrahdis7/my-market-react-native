@@ -11,14 +11,14 @@ async function clearCart(props){
     AsyncStorage.setItem('user', JSON.stringify(parsedUser));
     props.navigation.navigate('Orders');
 }
-export default function ReviewForm(props) {
+export default  function ReviewForm(props) {
     const data = props.navigation.getParam('data');
     
     return (
         <View style={styles.container}>
             <Formik
                 initialValues={{ name: '', contactno: '', address1: '', address2: '', pincode: '', city: '', state: '' }}
-                onSubmit={(values) => {
+                onSubmit={ async (values) => {
                     console.log(values);
                     var count=0;
                     for (let i of data) {
@@ -39,10 +39,14 @@ export default function ReviewForm(props) {
                         
                         const myHeaders = new Headers();
                         // myHeaders.append('sessionId', sessionID );
-                        fetch("http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/order/placeOrder",{
+                        
+                        await fetch("http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/order/placeOrder",{
                             method: 'POST',
-                            body: orderObject,
-                            headers: myHeaders,
+                            body: JSON.stringify(orderObject),
+                            headers: {
+                                'Content-Type': 'application/json'
+                                // 'Content-Type': 'application/x-www-form-urlencoded',
+                              }
                         })
                         .then(response => response.json())
                         .then((res) => console.log(res))
