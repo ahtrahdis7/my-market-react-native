@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, TouchableOpacity, FlatList, AsyncStorage } from "react-native";
+import { View, ScrollView, Text, TouchableOpacity, FlatList, AsyncStorage, RefreshControl } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Icon from "@expo/vector-icons/Ionicons";
 import CartItem from "./CartItem";
 import styles from './styles'
+import { withNavigation } from "react-navigation";
 
 function sleepFor(sleepDuration) {
   var now = new Date().getTime();
@@ -26,7 +27,8 @@ class Cart extends Component {
     this.state = {
       itemlist: [],
       render: true,
-      price: 0
+      price: 0,
+      // refreshing: false,
     }
   }
 
@@ -50,13 +52,25 @@ class Cart extends Component {
     // console.log(item.price)
     return (
       <CartItem
-        editIcon={true}
-        imageUri={{ uri: "data:image/png;base64," + item.imageLink }}
-        name={item.name}
-        price={item.price}
+        // editIcon={true}
+        // imageUri={{ uri: "data:image/png;base64," + item.imageLink }}
+        // name={item.name}
+        // price={item.price}
+        // id={item.productId}
+        getdata = {this.getData}
+        navigation = {this.props.navigation}
+        {...item}
       />
     )
   };
+
+
+  // _onRefresh() {
+  //   this.setState({refreshing: true});
+  //   withNavigation(5000).then(() => {
+  //     this.setState({refreshing: false});
+  //   });
+  // }
 
 
 
@@ -66,16 +80,24 @@ class Cart extends Component {
     var price = this.state.price;
     // console.log('price')
     // console.log(price)
-
+    for(var i in data[0]){
+      console.log(i)
+    }
     return (
       <View
         style={{
           flex: 1,
           backgroundColor: "#EFF0F1"
         }}
+        // refreshControl={
+        //   <RefreshControl
+        //     refreshing={this.state.refreshing}
+        //     onRefresh={this._onRefresh.bind(this)}
+        //   />
+        // }
       >
         <View style={styles.items}>
-          <ScrollView>
+          <ScrollView >
             <FlatList
               vertical
               showsVerticalScrollIndicator={false}

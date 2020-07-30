@@ -31,6 +31,7 @@ async function addtocart(props) {
   parsedUser = JSON.parse(user);
   console.log('fetched updated user');
   console.log(parsedUser.cart.length);
+  alert('added to cart');
   // AsyncStorage.merge('user',JSON.stringify({cart: [itemDetails._id]}),
   // () =>{
   //   AsyncStorage.getItem('user', (err, result) => {

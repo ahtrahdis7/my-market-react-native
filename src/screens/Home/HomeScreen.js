@@ -46,7 +46,10 @@ export default class HomeScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-
+    var fromCart = this.props.navigation.getParam('fromCart');
+    if(fromCart == true){
+      navigate('Cart');
+    }
     const renderMenuItem = (item) => {
       return (
         <TouchableHighlight underlayColor='rgba(73,182,77,1,0.9)'

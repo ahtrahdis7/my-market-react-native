@@ -1,16 +1,43 @@
 import React, { Component } from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity, AsyncStorage } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
 
+async function pressHandler(itemObj){
+    var user = await AsyncStorage.getItem('user');
+    var parsedUser = JSON.parse(user);
+    var data = parsedUser.cart;
+
+    var index = -1;
+    var count = 0;
+    for(var item of data){
+        if(item._id == itemObj._id){
+            index = count;
+            break;
+        }
+        count = count + 1;
+    }
+    if (index > -1) {
+        data.splice(index, 1);
+    }
+    parsedUser.cart = data;
+    await AsyncStorage.setItem('user', JSON.stringify(parsedUser));
+    itemObj.navigation.navigate('Home', {fromCart: true});
+    // itemObj.getdata();
+}
+
 class BasketItem extends Component {
     render() {
-        const { imageUri, name, price } = this.props;
+        // console.log(this.props.productId)
+        // for(var i in this.props){
+        //     console.log(i)
+        //   }
+        const { imageLink, name, price } = this.props;
         return (
             <View style={styles.cartitemcontainer}>
                 <View style={styles.imagecontainer}>
                     <Image
-                        source={imageUri}
+                        source={{ uri: "data:image/png;base64," + imageLink }}
                         style={styles.image} />
                 </View>
                 <View style={styles.itemdetails}>
@@ -23,7 +50,7 @@ class BasketItem extends Component {
                         </Text>
                         <View style={styles.delete}>
                             <TouchableOpacity>
-                                <MaterialIcons onPress={() => pressHandler(item.key)} name='delete' Text="delete" size={22} color='#545' />
+                                <MaterialIcons onPress={() => pressHandler(this.props)} name='delete' Text="delete" size={40} color='#545' />
                             </TouchableOpacity>
                         </View>
                     </View>
