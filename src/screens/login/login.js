@@ -56,8 +56,8 @@ export default function LoginScreen(props) {
           var user = await AsyncStorage.getItem('user');  
           var parsed = JSON.parse(user);  
 
-          console.log('fetched user');
-          console.log(parsed);
+          // console.log('fetched user');
+          // console.log(parsed);
 
 
           props.navigation.navigate('Home')
