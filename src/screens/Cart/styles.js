@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   items: {
-    height: "77%"
+    height: "80%"
   },
   checkoutbtn: {
     flexDirection: "row",
@@ -26,10 +26,11 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     justifyContent: "flex-end",
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   checkout: {
     fontSize: 18,
+    fontFamily: 'comic-bold',
     fontWeight: "500",
     color: "white"
   },
@@ -41,12 +42,11 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
   total: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 22,
     fontFamily: 'comic-bold',
   },
   cartitemcontainer: {
-    height: wp("28%"),
+    height: wp("30%"),
     width: wp("100%"),
     backgroundColor: "white",
     flexDirection: "row",

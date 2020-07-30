@@ -12,7 +12,7 @@ import ContactScreen from '../screens/Contact/ContactScreen';
 import LoginScreen from '../screens/login/login';
 import OrderDetails from '../screens/OrderDetails/OrderDetailsScreen'
 import SearchScreen from '../screens/Search/SearchScreen'
-import MyOrder from '../screens/MyOrder/OrderDetailsScreen'
+// import MyOrder from '../screens/MyOrder/OrderDetailsScreen'
 
 const screens = {
   Home: HomeScreen,
@@ -25,7 +25,7 @@ const screens = {
   Checkout: CheckoutScreen,
   Login: LoginScreen,
   OrderDetails: OrderDetails,
-  Orders: MyOrder,
+  // Orders: MyOrder,
 };
 
 const MainNavigator = createStackNavigator(screens, {
@@ -43,7 +43,7 @@ const DrawerStack = createDrawerNavigator(
     drawerPosition: 'left',
     initialRouteName: 'Main',
     drawerWidth: 230,
-    contentComponent: DrawerContainer
+    contentComponent: DrawerContainer,
   }
 );
 

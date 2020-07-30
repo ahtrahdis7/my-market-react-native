@@ -1,28 +1,26 @@
 import React from 'react';
-import { Button, TextInput, View, AsyncStorage } from 'react-native';
+import { TextInput, View, AsyncStorage } from 'react-native';
 import { Formik } from 'formik';
+import { Button } from 'react-native-elements';
 
 import styles from './styles';
 
-async function clearCart(props){
+async function clearCart(props) {
     var user = await AsyncStorage.getItem('user');
     var parsedUser = JSON.parse(user);
     parsedUser.cart = [];
     AsyncStorage.setItem('user', JSON.stringify(parsedUser));
     props.navigation.navigate('Orders');
 }
-export default  function ReviewForm(props) {
+export default function ReviewForm(props) {
     const data = props.navigation.getParam('data');
-    
     return (
         <View style={styles.container}>
             <Formik
                 initialValues={{ name: '', contactno: '', address1: '', address2: '', pincode: '', city: '', state: '' }}
-                onSubmit={ async (values) => {
-                    console.log(values);
-                    var count=0;
+                onSubmit={async (values) => {
+                    var count = 0;
                     for (let i of data) {
-                        console.log(count);
                         count = count + 1;
                         var orderObject = {
                             name: values.name,
@@ -30,28 +28,32 @@ export default  function ReviewForm(props) {
                             productId: i.productId,
                             price: i.price,
                             quantity: 1,
-                            addressLine1: values.address1 ,
+                            addressLine1: values.address1,
                             addressLine2: values.address2,
                             pincode: values.pincode,
                             city: values.city,
                             state: values.state,
                         }
-                        
+
                         const myHeaders = new Headers();
                         // myHeaders.append('sessionId', sessionID );
-                        
-                        await fetch("http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/order/placeOrder",{
+
+                        await fetch("http://testdeployment-env.eba-eqdcmu3a.us-east-2.elasticbeanstalk.com/api/order/placeOrder", {
                             method: 'POST',
                             body: JSON.stringify(orderObject),
                             headers: {
                                 'Content-Type': 'application/json'
-                                // 'Content-Type': 'application/x-www-form-urlencoded',
-                              }
+                            }
                         })
-                        .then(response => response.json())
-                        .then((res) => console.log(res))
-                        .catch(err => console.log(err));
-                      }
+                            .then(response => response.json())
+                            .then(async function (res) {
+                                if (res != null && count === data.length - 1) {
+                                    alert('Order Placed Successfully');
+                                    props.navigation.navigate('Home')
+                                }
+                            })
+                            .catch(err => console.log("Something went Wrong"));
+                    }
                     clearCart(props);
                 }}
             >
@@ -87,28 +89,27 @@ export default  function ReviewForm(props) {
                         />
                         <TextInput
                             style={styles.input}
-                            placeholder='pincode'
+                            placeholder='Pincode'
                             onChangeText={props.handleChange('pincode')}
                             value={props.values.pincode}
                             keyboardType='numeric'
                         />
                         <TextInput
                             style={styles.input}
-                            placeholder='city'
+                            placeholder='City'
                             onChangeText={props.handleChange('city')}
                             value={props.values.city}
                         />
                         <TextInput
                             style={styles.input}
-                            placeholder='state'
+                            placeholder='State'
                             onChangeText={props.handleChange('state')}
                             value={props.values.state}
                         />
-                        <Button buttonStyle={styles.placeorder} color='#008037' title="Place order" onPress={props.handleSubmit} />
+                        <Button buttonStyle={styles.placeorder} title="PLACE YOUR ORDER" onPress={props.handleSubmit} />
                     </View>
                 )}
             </Formik>
-        </View >
-
+        </View>
     );
 }

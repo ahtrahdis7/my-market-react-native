@@ -4,7 +4,6 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Icon from "@expo/vector-icons/Ionicons";
 import CartItem from "./CartItem";
 import styles from './styles'
-import { withNavigation } from "react-navigation";
 
 function sleepFor(sleepDuration) {
   var now = new Date().getTime();
@@ -45,56 +44,27 @@ class Cart extends Component {
   }
   componentDidMount() {
     this.getData();
-    // console.log("inside component did mount")
   }
 
   renderMenuItem = ({ item }) => {
     // console.log(item.price)
     return (
       <CartItem
-        // editIcon={true}
-        // imageUri={{ uri: "data:image/png;base64," + item.imageLink }}
-        // name={item.name}
-        // price={item.price}
-        // id={item.productId}
-        getdata = {this.getData}
-        navigation = {this.props.navigation}
+        getdata={this.getData}
+        navigation={this.props.navigation}
         {...item}
       />
     )
   };
-
-
-  // _onRefresh() {
-  //   this.setState({refreshing: true});
-  //   withNavigation(5000).then(() => {
-  //     this.setState({refreshing: false});
-  //   });
-  // }
-
-
-
   render() {
     var data = this.state.itemlist;
-    // console.log('after get  data ')
     var price = this.state.price;
-    // console.log('price')
-    // console.log(price)
-    // for(var i in data[0]){
-    //   console.log(i)
-    // }
     return (
       <View
         style={{
           flex: 1,
           backgroundColor: "#EFF0F1"
         }}
-        // refreshControl={
-        //   <RefreshControl
-        //     refreshing={this.state.refreshing}
-        //     onRefresh={this._onRefresh.bind(this)}
-        //   />
-        // }
       >
         <View style={styles.items}>
           <ScrollView >
@@ -120,7 +90,7 @@ class Cart extends Component {
           <View style={styles.checkoutcontainer}>
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => this.props.navigation.navigate("Checkout", {data: data})}
+              onPress={() => this.props.navigation.navigate("Checkout", { data: data })}
               style={styles.checkoutbtn}
             >
               <View
@@ -133,7 +103,7 @@ class Cart extends Component {
               <Text
                 style={styles.checkout}
               >
-                Place your order
+                CHECKOUT
               </Text>
             </TouchableOpacity>
           </View>

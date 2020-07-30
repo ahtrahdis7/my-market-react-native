@@ -4,6 +4,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        marginTop: 20,
+        fontFamily: 'comic-bold'
     },
     input: {
         borderWidth: 1,
@@ -12,11 +14,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         borderRadius: 6,
         margin: 5,
+        fontFamily: 'comic-bold'
     },
     placeorder: {
         backgroundColor: '#008037',
-        borderRadius: 10,
+        borderRadius: 5,
         height: 45,
+        marginTop: 20,
+        fontFamily: 'comic-bold'
     }
 });
 

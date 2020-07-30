@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { width: viewportWidth } = Dimensions.get('window');
 
@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
     margin: 10
   },
   title: {
-    fontFamily: 'comic-bold',
     fontSize: 20,
   },
   price: {
-    paddingTop: 20,
+    fontFamily: 'comic-bold',
+    paddingTop: 22,
+    marginHorizontal: 30,
     fontSize: 20,
-    fontWeight: 'bold'
   },
   review: {
     paddingTop: 10,
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   },
   addbtn: {
     backgroundColor: "#008037",
-    margin: 10,
-    padding: 10,
+    margin: 20,
+    padding: 8,
     fontFamily: 'lilita-regular',
   }
 });

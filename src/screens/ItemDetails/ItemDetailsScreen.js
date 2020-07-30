@@ -4,7 +4,7 @@ import {
   View,
   Text,
   Dimensions,
-  AsyncStorage, ScrollView
+  AsyncStorage, ScrollView,
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import styles from './styles';

@@ -3,7 +3,7 @@ import styles from "./style";
 import logo from '../../../assets/logo.jpg';
 import { Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements';
-import {AsyncStorage} from 'react-native';  
+import { AsyncStorage } from 'react-native';
 
 export default function LoginScreen(props) {
   // console.log(props)
@@ -27,7 +27,7 @@ export default function LoginScreen(props) {
           }
         })
         .catch(function (error) {
-          alert(error);
+          alert("Something went wrong");
         });
     } else {
       alert('Invalid Phone Number')
@@ -47,14 +47,14 @@ export default function LoginScreen(props) {
         })
       })
       .then(res => res.json())
-      .then( async function (res) {
-        if (res!= null) {
+      .then(async function (res) {
+        if (res != null) {
           alert('success');
           console.log(res);
-          AsyncStorage.setItem('user',JSON.stringify(res));  
+          AsyncStorage.setItem('user', JSON.stringify(res));
 
-          var user = await AsyncStorage.getItem('user');  
-          var parsed = JSON.parse(user);  
+          var user = await AsyncStorage.getItem('user');
+          var parsed = JSON.parse(user);
 
           // console.log('fetched user');
           // console.log(parsed);
@@ -104,6 +104,7 @@ export default function LoginScreen(props) {
             <TextInput
               maxLength={6}
               keyboardType="numeric"
+              placeholder="Enter OTP"
               placeholderColor="#c4c3cb"
               style={styles.OtpInput}
               value={otpVal}
