@@ -9,7 +9,7 @@ export default class MenuButton extends React.Component {
       <TouchableHighlight
         onPress={this.props.onPress}
         style={styles.btnClickContain}
-        underlayColor="rgba(128, 128, 128, 0.1)"
+        underlayColor="#fee"
       >
         <View style={styles.btnContainer}>
           <Image source={this.props.source} style={styles.btnIcon} />

@@ -30,7 +30,11 @@ const screens = {
 
 const MainNavigator = createStackNavigator(screens, {
   defaultNavigationOptions: {
-    headerStyle: { backgroundColor: '#fff', height: 50 },
+    headerStyle: { backgroundColor: '#545454', height: 50, },
+    headerTintColor: 'white',
+    headerTitleStyle: {
+      color: 'white'
+    },
     headerForceInset: { top: 'never' },
   }
 });

@@ -43,9 +43,4 @@ export const RecipeCard = StyleSheet.create({
     marginRight: 5,
     marginLeft: 5,
   },
-  category: {
-    marginTop: 5,
-    marginBottom: 5,
-    fontFamily: 'lilita'
-  }
 });

@@ -12,16 +12,12 @@ import styles from './styles';
 const { width: viewportWidth } = Dimensions.get('window');
 
 async function addtocart(props) {
-  console.log('i am in add to cart');
   const itemDetails = props.getParam('item');
   var user = await AsyncStorage.getItem('user');
   var parsedUser = JSON.parse(user);
 
-  console.log('fetched user');
-  // console.log(parsedUser);
-
   if (parsedUser == null) {
-    alert('login first')
+    alert('Please Login to continue')
   } else {
     parsedUser.cart.push(itemDetails);
   }
@@ -29,17 +25,7 @@ async function addtocart(props) {
 
   user = await AsyncStorage.getItem('user');
   parsedUser = JSON.parse(user);
-  console.log('fetched updated user');
-  console.log(parsedUser.cart.length);
-  alert('added to cart');
-  // AsyncStorage.merge('user',JSON.stringify({cart: [itemDetails._id]}),
-  // () =>{
-  //   AsyncStorage.getItem('user', (err, result) => {
-  //     console.log('added to cart')
-  //     console.log(result);
-  //   });
-  // });  
-
+  alert('Item added to cart successfully');
 }
 export default class RecipeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
