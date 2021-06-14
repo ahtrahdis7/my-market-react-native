@@ -27,4 +27,4 @@ Run the below commands in sequence to start the developemtn server in expo. In o
 5. expo start
 </pre>
 
-> ! Happy Coding !
+### ! Happy Coding !
