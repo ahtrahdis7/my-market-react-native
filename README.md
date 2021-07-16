@@ -1,5 +1,10 @@
 # E-commerce app usign react-native and expo-cli
 
+
+# Preview
+![mm](https://user-images.githubusercontent.com/44672399/125995593-b03dd6aa-1123-4adf-9550-1e0a4c1e7200.png)
+
+
 ## Tech Stack
 <div align="center">
 
