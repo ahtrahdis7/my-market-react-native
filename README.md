@@ -32,4 +32,6 @@ Run the below commands in sequence to start the developemtn server in expo. In o
 5. expo start
 </pre>
 
+### If you find this repo useful, please give a `Star`, and let others know about it.
+
 ### ! Happy Coding !
